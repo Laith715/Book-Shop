@@ -5,6 +5,7 @@ export const dataBaseProviders = [
         provide: 'SEQUELIZE',
         useFactory: async () => {
             const sequelize = new Sequelize({
+                repositoryMode: true,
                 dialect: 'mysql',
                 host: 'localhost',
                 port: 3306,
@@ -12,7 +13,7 @@ export const dataBaseProviders = [
                 password: 'Qwe123!!',
                 database: 'BookShop',
             });
-            sequelize.addModels([__dirname + 'src/enities/*.entity.ts']);
+            sequelize.addModels([__dirname + '/entities/**/*.entity.ts']);
             await sequelize.sync();
 
             return sequelize;
