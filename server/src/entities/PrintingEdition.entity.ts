@@ -1,5 +1,5 @@
-import { Model } from 'sequelize/types';
-import { PrintingEditionType } from 'src/enums/PrintingEditionType';
+import { Model } from 'sequelize';
+import { PrintingEditionType } from 'src/entities/enums/printingEditionType';
 
 export class PrintingEdition extends Model<PrintingEdition> {
     id: number;

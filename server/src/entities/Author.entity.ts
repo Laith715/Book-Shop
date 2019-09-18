@@ -1,4 +1,4 @@
-import { Model } from 'sequelize/types';
+import { Model } from 'sequelize';
 
 export class Author extends Model<Author> {
     id: number;

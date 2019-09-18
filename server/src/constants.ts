@@ -1,3 +1,3 @@
-export class Constants {
-
-}
+export const Repositories = {
+    UserRepository: 'UserRepository',
+};

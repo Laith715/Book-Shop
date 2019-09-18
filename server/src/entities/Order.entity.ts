@@ -1,4 +1,4 @@
-import { Model } from 'sequelize/types';
+import { Model } from 'sequelize';
 
 export class OrderItems extends Model<OrderItems> {
     id: number;
