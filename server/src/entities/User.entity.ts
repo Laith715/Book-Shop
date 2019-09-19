@@ -7,6 +7,7 @@ export class User extends Model<User> {
         primaryKey: true,
         unique: true,
         field: 'Id',
+        autoIncrement: true,
     })
     id: number;
 
@@ -15,20 +16,21 @@ export class User extends Model<User> {
         allowNull: false,
         defaultValue: false,
     })
-    firstName: string;
+    firstName!: string;
 
     @Column({
         type: DataType.STRING,
         allowNull: false,
         defaultValue: false,
     })
-    lastName: string;
+    lastName!: string;
 
     @Column({
         type: DataType.STRING,
+        allowNull: false,
         unique: true,
     })
-    email: string;
+    email!: string;
 
     @CreatedAt
     @Column({
@@ -40,5 +42,5 @@ export class User extends Model<User> {
         type: DataType.STRING,
         allowNull: false,
     })
-    passwordHash: string;
+    passwordHash!: string;
 }

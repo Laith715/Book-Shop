@@ -10,6 +10,7 @@ module.exports = {
           primaryKey: true,
           unique: true,
           field: 'Id',
+          autoIncrement: true,
         },
         email: {
           type: Sequelize.STRING,
@@ -40,6 +41,7 @@ module.exports = {
           primaryKey: true,
           unique: true,
           field: 'Id',
+          autoIncrement: true,
         },
         name: {
           type: Sequelize.STRING,
@@ -71,6 +73,7 @@ module.exports = {
           primaryKey: true,
           unique: true,
           field: 'Id',
+          autoIncrement: true,
         },
         fullName: {
           type: Sequelize.STRING,
@@ -85,6 +88,7 @@ module.exports = {
           primaryKey: true,
           unique: true,
           field: 'Id',
+          autoIncrement: true,
         },
         name: {
           type: Sequelize.STRING,
@@ -110,6 +114,7 @@ module.exports = {
           primaryKey: true,
           unique: true,
           field: 'Id',
+          autoIncrement: true,
         },
         authorId: {
           type: Sequelize.INTEGER,
@@ -134,6 +139,7 @@ module.exports = {
           primaryKey: true,
           unique: true,
           field: 'Id',
+          autoIncrement: true,
         },
         description: {
           type: Sequelize.STRING,
@@ -153,6 +159,7 @@ module.exports = {
           primaryKey: true,
           unique: true,
           field: 'Id',
+          autoIncrement: true,
         },
       })
 
@@ -162,6 +169,7 @@ module.exports = {
           primaryKey: true,
           unique: true,
           field: 'Id',
+          autoIncrement: true,
         },
         transactionId: {
           type: Sequelize.INTEGER,
@@ -178,6 +186,7 @@ module.exports = {
           primaryKey: true,
           unique: true,
           field: 'Id',
+          autoIncrement: true,
         },
         amount: {
           type: Sequelize.DECIMAL,

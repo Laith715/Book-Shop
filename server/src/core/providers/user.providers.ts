@@ -1,9 +1,9 @@
-import { Repositories } from 'src/constants';
 import { User } from 'src/entities/user.entity';
+import { UserProvider } from 'src/constants';
 
 export const UserProviders = [
     {
-        provide: Repositories.UserRepository,
+        provide: UserProvider,
         useValue: User,
     },
 ];

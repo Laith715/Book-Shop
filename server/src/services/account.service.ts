@@ -1,20 +1,34 @@
-import { RegisterModel } from 'src/models/register.model';
+import { UserModel } from 'src/models/user.model';
 import { User } from 'src/entities/user.entity';
-import { Injectable } from '@nestjs/common';
+import { Injectable, Inject } from '@nestjs/common';
 import { UserRepository } from 'src/repositories/user.repository';
+import { HashSaltRounds, Configuration } from 'src/constants';
+import { Environment } from 'src/config/Environment';
 
 @Injectable()
 export class AccountService {
-    constructor(private readonly userRepository: UserRepository) { }
+    constructor(private readonly userRepository: UserRepository, @Inject(Configuration) private readonly configuration: Environment) { }
 
-    async register(model: RegisterModel): Promise<User[]> {
+    async register(model: UserModel): Promise<User> {
+        const currentConfiguration = this.configuration;
         const bcrypt = require('bcrypt');
-        const saltRounds = 10;
-
-        await bcrypt.hash(model.password, saltRounds, (err: any, hash: string) => {
-            model.password = hash;
+        const passwordHashs: string = await new Promise((resolve, reject) => {
+            bcrypt.hash(model.passwordHash, HashSaltRounds, (error: any, hash: string) => {
+                if (error) {
+                    reject(error);
+                }
+                resolve(hash);
+            });
         });
-        // const user = await this.userRepository.findAll();
-        return null;
+        const userFromModel: UserModel = {
+            id: null,
+            firstName: model.firstName,
+            lastName: model.lastName,
+            email: model.email,
+            passwordHash: passwordHashs,
+            createtinDateTimeUTC: null,
+        };
+        const newUser = await this.userRepository.insert(userFromModel);
+        return newUser;
     }
 }
