@@ -1,16 +1,15 @@
 import { Sequelize } from 'sequelize-typescript';
 import { User } from 'src/entities/user.entity';
-import { EnvironmentFactory } from 'src/config/environment.factory';
-import { Environment } from 'src/config/Environment';
 import { Dialect } from 'sequelize/types';
 import { Author } from 'src/entities/author.entity';
+import { SequelizeInstance } from 'src/constants';
+import { EnvironmentConfiguration } from 'src/config/configuration.environment';
 
 export const dataBaseProviders = [
     {
-        provide: 'SEQUELIZE',
+        provide: SequelizeInstance,
         useFactory: async () => {
-            const factory: EnvironmentFactory = new EnvironmentFactory();
-            const config: Environment = factory.getInstance();
+            const config: EnvironmentConfiguration = null;
             const sequelize = new Sequelize({
                 dialect: config.dialect as Dialect,
                 host: config.host,
