@@ -4,17 +4,21 @@ import { AccountService } from 'src/auth/account.service';
 import { JwtModule, JwtService } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { UserRepository } from 'src/repositories/user.repository';
-import { EnvironmentConfigurations } from 'src/core/providers/configuration.provider';
+import { Environment } from 'src/config/configuration.environment';
+import { DefaultEnvironment } from 'src/constants';
+
+
+const configuration: Environment = new Environment(`${process.env.NODE_ENV || DefaultEnvironment}.env`);
 
 @Module({
     imports: [
         PassportModule.register({ defaultStrategy: 'jwt' }),
         JwtModule.register({
-            secret: process.env.jwtSecret,
+            secret: configuration.jwtSecret,
             signOptions: { expiresIn: '20s' },
         })],
     controllers: [AccountController],
     providers: [AccountService, JwtService, UserRepository],
-    exports: [AccountService],
+    exports: [AccountService, JwtService],
 })
 export class AuthModule { }

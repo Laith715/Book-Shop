@@ -1,11 +1,11 @@
 import { Configuration, DefaultEnvironment } from 'src/constants';
-import { EnvironmentConfiguration } from 'src/config/configuration.environment';
+import { Environment } from 'src/config/configuration.environment';
 
 export const EnvironmentConfigurations = [
     {
         provide: Configuration,
-        useFactory: (): EnvironmentConfiguration => {
-            const configuration: EnvironmentConfiguration = new EnvironmentConfiguration(`${process.env.NODE_ENV} || ${DefaultEnvironment}`);
+        useFactory: (): Environment => {
+            const configuration: Environment = new Environment(`${process.env.NODE_ENV || DefaultEnvironment}.env`);
             return configuration;
         },
     },
