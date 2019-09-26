@@ -1,6 +1,9 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Post, Body, UseGuards, Req, Get } from '@nestjs/common';
 import { UserModel } from 'src/models/user.model';
 import { AccountService } from 'src/auth/account.service';
+import { AuthGuard } from '@nestjs/passport';
+import { DefaultStrategy } from 'src/constants';
+import { UserLoginModel } from 'src/models/userLogin.model';
 
 @Controller('Account')
 export class AccountController {
@@ -9,5 +12,16 @@ export class AccountController {
     @Post('Register')
     async register(@Body() model: UserModel): Promise<object> {
         return await this.accountService.register(model);
+    }
+
+    @Post('Login')
+    async login(@Body() request: UserLoginModel): Promise<object> {
+        return await this.accountService.login(request);
+    }
+
+    @Get('CurrentUser')
+    @UseGuards(AuthGuard(DefaultStrategy))
+    async CurrentUser(@Req() request): Promise<UserModel> {
+        return request.user;
     }
 }
