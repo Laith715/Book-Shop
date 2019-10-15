@@ -1,24 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import { Provider } from 'react-redux'
-import StoreConfiguration from './store/store.configuration';
+import StoreConfiguration from './modules/store.configuration';
 import { createBrowserHistory, History } from 'history';
+import Main from './main';
+import { RootState } from './modules/state.interface';
+import { AuthState } from './modules/auth/store/auth.reducer';
 
 const rootElement = document.getElementById('root');
 const history: History = createBrowserHistory();
-const initialState = window.INITIAL_REDUX_STATE;
+const initialState = {
+    auth: {
+        loading: false,
+        errors: [],
+        token: '',
+    } as AuthState,
+} as RootState;
 const store = StoreConfiguration(history, initialState);
 
-ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
-    rootElement);
+ReactDOM.render(<Main store={store} history={history} />, rootElement);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
