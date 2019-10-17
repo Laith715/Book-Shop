@@ -7,7 +7,7 @@ export interface AuthState {
     loading: boolean;
 }
 
-export const initialState: AuthState = {
+const initialState: AuthState = {
     token: '',
     errors: [],
     loading: false,

@@ -1,8 +1,9 @@
-import { Controller, Post, Body, UseGuards, Req, Get } from '@nestjs/common';
+import { Controller, Post, Body, UseGuards, Req, Get, BadRequestException } from '@nestjs/common';
 import { UserModel } from 'src/models/user.model';
 import { AccountService } from 'src/auth/account.service';
 import { AuthGuard } from '@nestjs/passport';
 import { DefaultStrategy } from 'src/constants';
+import { UserLoginModel } from 'src/models/userLogin.model';
 
 @Controller('Account')
 export class AccountController {
@@ -14,7 +15,10 @@ export class AccountController {
     }
 
     @Post('Login')
-    async login(@Body() request: any): Promise<object> {
+    async login(@Body() request: UserLoginModel): Promise<object> {
+        if (!request && !(request instanceof UserLoginModel)) {
+            throw new BadRequestException('Something went wrong');
+        }
         return await this.accountService.login(request);
     }
 
