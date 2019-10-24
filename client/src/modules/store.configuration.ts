@@ -13,7 +13,7 @@ export default function StoreConfiguration(history: History, initialState: RootS
     const rootReducer = createRootReducer(history);
     const storeEnhancer = composeEnhancers(applyMiddleware(routerMiddleware(history), sagaMiddleware));
 
-    const store = createStore(rootReducer, initialState, storeEnhancer);
+    const store: Store<RootState> = createStore(rootReducer, initialState, storeEnhancer);
 
     sagaMiddleware.run(rootSaga);
 

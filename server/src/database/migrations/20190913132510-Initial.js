@@ -15,6 +15,7 @@ module.exports = {
         email: {
           type: Sequelize.STRING,
           unique: true,
+          allowNull: false,
         },
         firstName: {
           type: Sequelize.STRING,
@@ -56,7 +57,8 @@ module.exports = {
           references: {
             model: 'Users',
             key: 'Id',
-          }
+          },
+          allowNull: false,
         },
         roleId: {
           type: Sequelize.INTEGER,
@@ -64,6 +66,7 @@ module.exports = {
             model: 'Roles',
             key: 'Id',
           },
+          allowNull: false,
         },
       }, { transaction });
 
@@ -92,19 +95,24 @@ module.exports = {
         },
         name: {
           type: Sequelize.STRING,
+          allowNull: false,
         },
         description: {
           type: Sequelize.STRING,
+          allowNull: false,
         },
         price: {
           type: Sequelize.INTEGER,
+          allowNull: false,
         },
         type: {
           type: Sequelize.ENUM,
-          values: ['None', 'Book', 'Journal', 'NewsPaper']
+          values: ['None', 'Book', 'Journal', 'NewsPaper'],
+          allowNull: false,
         },
         currency: {
           type: Sequelize.STRING,
+          allowNull: false,
         },
       }, { transaction });
 
@@ -118,6 +126,7 @@ module.exports = {
         },
         authorId: {
           type: Sequelize.INTEGER,
+          allowNull: false,
           references: {
             model: 'Authors',
             key: 'Id',
@@ -125,12 +134,16 @@ module.exports = {
         },
         printingEdtionId: {
           type: Sequelize.INTEGER,
+          allowNull: false,
           references: {
             model: 'PrintingEditions',
             key: 'Id',
           },
         },
-        creationDateTimeUTC: Sequelize.DATE,
+        creationDateTimeUTC: {
+          type: Sequelize.DATE,
+          allowNull: false,
+        },
       }, { transaction });
 
       await queryInterface.createTable('Orders', {
@@ -150,6 +163,7 @@ module.exports = {
             model: 'Users',
             key: 'Id',
           },
+          allowNull: false,
         },
       }, { transaction });
 
@@ -177,6 +191,7 @@ module.exports = {
             model: 'Transactions',
             key: 'Id',
           },
+          allowNull: false,
         }
       }, { transaction });
 
@@ -190,9 +205,11 @@ module.exports = {
         },
         amount: {
           type: Sequelize.DECIMAL,
+          allowNull: false,
         },
         currency: {
           type: Sequelize.STRING,
+          allowNull: false,
         },
         printingEdtionId: {
           type: Sequelize.INTEGER,
@@ -200,9 +217,11 @@ module.exports = {
             model: 'PrintingEditions',
             key: 'Id',
           },
+          allowNull: false,
         },
         count: {
           type: Sequelize.INTEGER,
+          allowNull: false,
         },
       }, { transaction });
 

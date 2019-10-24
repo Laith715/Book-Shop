@@ -2,25 +2,17 @@ import { createMuiTheme, Theme } from '@material-ui/core';
 import { Reducer } from 'redux';
 import { LayoutActionTypes } from './layout.types';
 import { ThemeOptions } from '@material-ui/core/styles/createMuiTheme';
-import { red } from '@material-ui/core/colors';
+import { red, indigo, green } from '@material-ui/core/colors';
 
 export interface LayoutState {
     theme: Theme;
 }
 const themeOptions: ThemeOptions = {
     palette: {
-        primary: {
-            main: '#556cd6',
-        },
-        secondary: {
-            main: '#19857b',
-        },
-        error: {
-            main: red.A400,
-        },
-        background: {
-            default: '#fff',
-        },
+        primary: indigo,
+        secondary: green,
+        error: red,
+        type: 'dark',
     },
 };
 

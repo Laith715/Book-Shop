@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { LoginModel } from './models/auth.login.model';
 import { AuthorizationRequested } from './store/auth.actions';
 import { RootState } from '../state.interface';
+import { Button, FormControl, InputLabel, Input, Box } from '@material-ui/core';
 
 interface PropsFromState {
     loading: boolean;
@@ -46,17 +47,19 @@ class AuthComponent extends React.Component<AllProps, LoginModel> {
 
     render() {
         return (
-            <div>
-                <form className='login-form'>
-                    <label htmlFor='email'>Email</label>
-                    <input value={this.state.email} onChange={this.emailChangeHandler} name='email' type='email' placeholder='Enter your email' />
-
-                    <label htmlFor='password'></label>
-                    <input value={this.state.password} onChange={this.passwordChangeHandler} name='password' type='password' placeholder='Enter your password' />
-
-                    <button onClick={this.loginHandler}>Login</button>
-                </form>
-            </div>
+            <Box component='div'>
+                <FormControl>
+                    <InputLabel htmlFor='email'>Email</InputLabel>
+                    <Input autoFocus={true} value={this.state.email} onChange={this.emailChangeHandler} name='email' type='email' placeholder='Enter your email' />
+                </FormControl>
+                <FormControl>
+                    <InputLabel variant='outlined' htmlFor='password'>Password</InputLabel>
+                    <Input value={this.state.password} onChange={this.passwordChangeHandler} name='password' type='password' placeholder='Enter your password' />
+                </FormControl>
+                <FormControl>
+                    <Button color='primary' variant='contained' onClick={this.loginHandler}>Login</Button>
+                </FormControl>
+            </Box>
         );
     }
 }

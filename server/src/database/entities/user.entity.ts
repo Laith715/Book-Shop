@@ -9,38 +9,38 @@ export class User extends Model<User> {
         field: 'Id',
         autoIncrement: true,
     })
-    id: number;
+    public id: number;
 
     @Column({
         type: DataType.STRING,
         allowNull: false,
         defaultValue: false,
     })
-    firstName!: string;
+    public firstName!: string;
 
     @Column({
         type: DataType.STRING,
         allowNull: false,
         defaultValue: false,
     })
-    lastName!: string;
+    public lastName!: string;
 
     @Column({
         type: DataType.STRING,
         allowNull: false,
         unique: true,
     })
-    email!: string;
+    public email!: string;
 
     @CreatedAt
     @Column({
         type: DataType.DATE,
     })
-    creationDateTimeUTC: Date;
+    public creationDateTimeUTC: Date;
 
     @Column({
         type: DataType.STRING,
         allowNull: false,
     })
-    passwordHash!: string;
+    public passwordHash!: string;
 }

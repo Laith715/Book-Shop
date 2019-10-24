@@ -1,12 +1,11 @@
 import { Module } from '@nestjs/common';
-import { AccountController } from 'src/auth/account.controller';
-import { AccountService } from 'src/auth/account.service';
-import { JwtModule } from '@nestjs/jwt';
+import { AccountController } from 'src/modules/auth/account.controller';
+import { AccountService } from 'src/modules/auth/account.service';
 import { PassportModule } from '@nestjs/passport';
 import { Environment } from 'src/config/configuration.environment';
-import {  DefaultStrategy } from 'src/constants';
-import { JwtStrategy } from 'src/auth/jwt.strategy';
-import { CoreModule } from 'src/core/core.module';
+import { DefaultStrategy } from 'src/constants';
+import { JwtStrategy } from 'src/modules/auth/jwt.strategy';
+import { CoreModule } from 'src/modules/core/core.module';
 
 const configuration: Environment = new Environment();
 
@@ -14,10 +13,6 @@ const configuration: Environment = new Environment();
     imports: [
         CoreModule,
         PassportModule.register({ defaultStrategy: DefaultStrategy }),
-        JwtModule.register({
-            secret: configuration.jwtSecret,
-            signOptions: { expiresIn: 20 },
-        }),
     ],
     controllers: [AccountController],
     providers: [AccountService, JwtStrategy],

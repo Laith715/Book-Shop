@@ -9,12 +9,12 @@ export class Author extends Model<Author> {
         field: 'Id',
         autoIncrement: true,
     })
-    id: number;
+    public id: number;
 
     @Column({
         type: DataType.STRING,
         allowNull: false,
         defaultValue: false,
     })
-    name: string;
+    public name: string;
 }

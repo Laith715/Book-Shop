@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
-import { UserProviders } from 'src/core/providers/user.providers';
-import { dataBaseProviders } from 'src/core/providers/database.providers';
-import { UserRepository } from 'src/repositories/user.repository';
+import { UserProviders } from 'src/modules/core/providers/user.providers';
+import { dataBaseProviders } from 'src/modules/core/providers/database.providers';
+import { UserRepository } from 'src/database/repositories/user.repository';
 import { Environment } from 'src/config/configuration.environment';
 
 @Module({
@@ -14,8 +14,8 @@ import { Environment } from 'src/config/configuration.environment';
     exports: [
         ...dataBaseProviders,
         ...UserProviders,
-        UserRepository,
         Environment,
+        UserRepository,
     ],
 })
 export class CoreModule { }

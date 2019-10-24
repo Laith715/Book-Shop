@@ -11,25 +11,17 @@ import { AuthState } from './modules/auth/store/auth.reducer';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { LayoutState } from './modules/Layout/store/layout.reducer';
 import { ThemeOptions } from '@material-ui/core/styles/createMuiTheme';
-import { red } from '@material-ui/core/colors';
+import { red, teal, green } from '@material-ui/core/colors';
 
 const rootElement = document.getElementById('root');
 const history: History = createBrowserHistory();
 
 const themeOptions: ThemeOptions = {
     palette: {
-        primary: {
-            main: '#556cd6',
-        },
-        secondary: {
-            main: '#19857b',
-        },
-        error: {
-            main: red.A400,
-        },
-        background: {
-            default: '#fff',
-        },
+        primary: teal,
+        secondary: green,
+        error: red,
+        type: 'dark',
     },
 };
 const defaultTheme = createMuiTheme(themeOptions);

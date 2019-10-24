@@ -20,6 +20,7 @@ function* LogIn(action: ReturnType<typeof AuthorizationRequested>) {
         }
     }
 }
+
 export function* watchLogInSaga() {
     yield takeEvery(AuthActionTypes.AuthorizationRequested, LogIn);
 }

@@ -1,6 +1,6 @@
 import { Sequelize } from 'sequelize-typescript';
-import { User } from 'src/entities/user.entity';
-import { Author } from 'src/entities/author.entity';
+import { User } from 'src/database/entities/user.entity';
+import { Author } from 'src/database/entities/author.entity';
 import { SequelizeInstance } from 'src/constants';
 import { Environment } from 'src/config/configuration.environment';
 

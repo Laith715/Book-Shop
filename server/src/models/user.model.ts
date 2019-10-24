@@ -1,8 +1,8 @@
 export class UserModel {
-    id: number;
-    firstName: string;
-    lastName: string;
-    passwordHash: string;
-    email: string;
-    createtinDateTimeUTC: Date;
+    public id: number;
+    public firstName: string;
+    public lastName: string;
+    public passwordHash: string;
+    public email: string;
+    public createtinDateTimeUTC: Date;
 }
