@@ -12,6 +12,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import { LayoutState } from './modules/Layout/store/layout.reducer';
 import { ThemeOptions } from '@material-ui/core/styles/createMuiTheme';
 import { red, teal, green } from '@material-ui/core/colors';
+import { TokenModel } from 'modules/root/models/token.model';
 
 const rootElement = document.getElementById('root');
 const history: History = createBrowserHistory();
@@ -29,7 +30,7 @@ const initialState = {
     auth: {
         loading: false,
         errors: [],
-        token: '',
+        token: new TokenModel(),
     } as AuthState,
     layout: {
         theme: defaultTheme,

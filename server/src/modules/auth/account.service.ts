@@ -75,7 +75,7 @@ export class AccountService {
         }
         const payload: object = { email: user.email, id: user.id, role: RoleModel };
 
-        const accessToken: string = sign(payload, this.environment.jwtSecret, { expiresIn: '30' });
+        const accessToken: string = sign(payload, this.environment.jwtSecret, { expiresIn: '10m' });
         const refreshToken: string = sign({ id: user.id }, this.environment.jwtRefreshSecret, { expiresIn: '24h' });
 
         return new TokenModel(accessToken, refreshToken);

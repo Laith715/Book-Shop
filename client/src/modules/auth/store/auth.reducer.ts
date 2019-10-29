@@ -1,14 +1,15 @@
 import { Reducer } from 'redux';
 import { AuthActionTypes } from './auth.types';
+import { TokenModel } from 'modules/root/models/token.model';
 
 export interface AuthState {
-    token: string;
+    token: TokenModel;
     errors: Error[];
     loading: boolean;
 }
 
 const initialState: AuthState = {
-    token: '',
+    token: new TokenModel(),
     errors: [],
     loading: false,
 };

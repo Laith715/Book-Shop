@@ -1,7 +1,9 @@
 import axios, { Method, AxiosResponse } from 'axios';
+import { TokenStorage } from 'util/token.storage';
 
 export default async function apiCall(method: string, path: string, data?: any) {
     const headers = new Headers();
+    const authorizationconfig = TokenStorage.getAuthentificationConfiguration();
     headers.append('Accept', 'application/json');
     if (data && data instanceof FormData) {
         headers.append('Content-Type', 'multipart/form-data');
@@ -10,6 +12,7 @@ export default async function apiCall(method: string, path: string, data?: any) 
             method: method.toUpperCase() as Method,
             headers: headers,
             data: data,
+            ...authorizationconfig,
         });
         return responseModel;
     }
@@ -20,6 +23,7 @@ export default async function apiCall(method: string, path: string, data?: any) 
         method: method.toUpperCase() as Method,
         headers: headers,
         data: data,
+        ...authorizationconfig,
     });
     return response;
 }

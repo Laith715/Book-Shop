@@ -4,12 +4,17 @@ import { createRootReducer } from './root/store/root.reducer';
 import { History } from 'history';
 import { routerMiddleware } from 'connected-react-router';
 import createSagaMiddleware from 'redux-saga';
-import { rootSaga } from './root/store/root.saga';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { rootSaga } from 'modules/root/store/root.saga';
 
 export default function StoreConfiguration(history: History, initialState: RootState): Store<RootState> {
     const composeEnhancers = composeWithDevTools({});
-    const sagaMiddleware = createSagaMiddleware();
+    const sagaMiddleware = createSagaMiddleware({
+        onError: (error: Error) => {
+            // tslint:disable-next-line: no-console
+            console.log(error);
+        },
+    });
     const rootReducer = createRootReducer(history);
     const storeEnhancer = composeEnhancers(applyMiddleware(routerMiddleware(history), sagaMiddleware));
 

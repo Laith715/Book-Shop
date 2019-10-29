@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 import { History } from 'history';
-import { AuthReducer } from '../../auth/store/auth.reducer';
 import { connectRouter } from 'connected-react-router';
-import LayoutReducer from '../../Layout/store/layout.reducer';
-import { NavigationReducer } from '../../navigation-bar/store/navigation-bar.reducer';
+import { AuthReducer } from 'modules/auth/store/auth.reducer';
+import { LayoutReducer } from 'modules/Layout/store/layout.reducer';
+import { NavigationReducer } from 'modules/navigation-bar/store/navigation-bar.reducer';
 
 export const createRootReducer = (history: History) => combineReducers({
     auth: AuthReducer,

@@ -20,7 +20,7 @@ const initialState: LayoutState = {
     theme: createMuiTheme(themeOptions),
 };
 
-const LayoutReducer: Reducer<LayoutState> = (state: LayoutState = initialState, action) => {
+export const LayoutReducer: Reducer<LayoutState> = (state: LayoutState = initialState, action) => {
     switch (action.type) {
         case LayoutActionTypes.SetTheme: {
             return { ...state, theme: action.payload };
@@ -30,4 +30,3 @@ const LayoutReducer: Reducer<LayoutState> = (state: LayoutState = initialState, 
         }
     }
 };
-export default LayoutReducer;

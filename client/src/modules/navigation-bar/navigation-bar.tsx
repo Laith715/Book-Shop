@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { RootState } from '../state.interface';
 import { makeStyles, Theme, createStyles, AppBar, Toolbar, IconButton, Typography, InputBase, Badge, Menu, MenuItem } from '@material-ui/core';
 import { fade } from '@material-ui/core/styles';
 import MoreIcon from '@material-ui/icons/MoreVert';
@@ -9,6 +8,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import { RootState } from 'modules/state.interface';
 
 interface PropsFromState {
     theme: Theme;

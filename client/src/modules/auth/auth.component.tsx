@@ -5,10 +5,11 @@ import { LoginModel } from './models/auth.login.model';
 import { AuthorizationRequested } from './store/auth.actions';
 import { RootState } from '../state.interface';
 import { Button, FormControl, InputLabel, Input, Box } from '@material-ui/core';
+import { TokenModel } from 'modules/root/models/token.model';
 
 interface PropsFromState {
     loading: boolean;
-    token: string;
+    token: TokenModel;
     errors: Error[];
 }
 
