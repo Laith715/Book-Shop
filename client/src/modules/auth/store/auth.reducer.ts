@@ -1,6 +1,6 @@
 import { Reducer } from 'redux';
-import { AuthActionTypes } from './auth.types';
 import { TokenModel } from 'modules/root/models/token.model';
+import { AuthActionTypes } from 'modules/auth/store/auth.types';
 
 export interface AuthState {
     token: TokenModel;

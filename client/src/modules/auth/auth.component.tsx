@@ -3,7 +3,7 @@ import { RouteComponentProps } from 'react-router';
 import { connect } from 'react-redux';
 import { LoginModel } from './models/auth.login.model';
 import { AuthorizationRequested } from './store/auth.actions';
-import { RootState } from '../state.interface';
+import { RootState } from '../root/state.interface';
 import { Button, FormControl, InputLabel, Input, Box } from '@material-ui/core';
 import { TokenModel } from 'modules/root/models/token.model';
 

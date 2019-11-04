@@ -10,4 +10,5 @@ export const createRootReducer = (history: History) => combineReducers({
     layout: LayoutReducer,
     router: connectRouter(history),
     navigation: NavigationReducer,
+    printingEdition: PrintingEditionReducer,
 });

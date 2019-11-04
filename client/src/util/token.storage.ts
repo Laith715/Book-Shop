@@ -14,6 +14,11 @@ export class TokenStorage {
         };
     }
 
+    public static storeTokenModel(tokenModel: TokenModel) {
+        this.storeAccessToken(tokenModel.accessToken);
+        this.storeRefreshToken(tokenModel.refreshToken);
+    }
+
     public static refreshToken(): Promise<TokenModel> {
         return new Promise((resolve, reject) => {
             axios.request({

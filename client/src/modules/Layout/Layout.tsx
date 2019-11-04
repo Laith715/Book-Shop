@@ -1,5 +1,5 @@
 import { Theme } from '@material-ui/core';
-import { RootState } from '../state.interface';
+import { RootState } from '../root/state.interface';
 import { SetTheme } from './store/layout.actions';
 import { connect } from 'react-redux';
 import * as React from 'react';
@@ -32,7 +32,7 @@ class Layout extends React.Component<AllProps> {
     }
 }
 
-const mapToStateProps = ({ layout }: RootState): PropsFromState => ({
+const mapToState = ({ layout }: RootState): PropsFromState => ({
     theme: layout.theme,
 });
 
@@ -40,4 +40,4 @@ const mapToDispatch: PropsFromDispatch = {
     setTheme: SetTheme,
 };
 
-export default connect(mapToStateProps, mapToDispatch)(Layout);
+export default connect(mapToState, mapToDispatch)(Layout);

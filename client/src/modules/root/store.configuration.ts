@@ -1,6 +1,6 @@
 import { RootState } from './state.interface';
 import { Store, createStore, applyMiddleware } from 'redux';
-import { createRootReducer } from './root/store/root.reducer';
+import { createRootReducer } from './store/root.reducer';
 import { History } from 'history';
 import { routerMiddleware } from 'connected-react-router';
 import createSagaMiddleware from 'redux-saga';

@@ -1,18 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import * as serviceWorker from './serviceWorker';
-
-import StoreConfiguration from './modules/store.configuration';
-import { createBrowserHistory, History } from 'history';
-import Main from './main';
-import { RootState } from './modules/state.interface';
-import { AuthState } from './modules/auth/store/auth.reducer';
 import { createMuiTheme } from '@material-ui/core/styles';
-import { LayoutState } from './modules/Layout/store/layout.reducer';
 import { ThemeOptions } from '@material-ui/core/styles/createMuiTheme';
 import { red, teal, green } from '@material-ui/core/colors';
 import { TokenModel } from 'modules/root/models/token.model';
+import { createBrowserHistory, History } from 'history';
+import { AuthState } from 'modules/auth/store/auth.reducer';
+import { LayoutState } from 'modules/Layout/store/layout.reducer';
+import { RootState } from 'modules/root/state.interface';
+
+import StoreConfiguration from 'modules/root/store.configuration';
+import Main from 'modules/root/main';
+
+import * as serviceWorker from 'serviceWorker';
 
 const rootElement = document.getElementById('root');
 const history: History = createBrowserHistory();
