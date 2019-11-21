@@ -1,8 +1,8 @@
 import { Theme } from '@material-ui/core';
-import { RootState } from '../root/state.interface';
-import { SetTheme } from './store/layout.actions';
 import { connect } from 'react-redux';
 import * as React from 'react';
+import { RootState } from 'modules/root/state.interface';
+import { SetTheme } from 'modules/Layout/store/layout.actions';
 
 interface PropsFromState {
     theme: Theme;

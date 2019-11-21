@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
-import { TokenModel } from 'modules/root/models/token.model';
+import { TokenModel } from 'modules/auth/models/token.model';
 
 export class TokenStorage {
 

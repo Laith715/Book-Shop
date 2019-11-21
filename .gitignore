@@ -1,7 +1,9 @@
 server/.vscode
 client/.vscode
 book-shop.code-workspace
-server/development.env
 client/src/environments
 client/tslint.json
 server/tslint.json
+server/**/*.env
+*.vscode
+database.json

@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeOptions } from '@material-ui/core/styles/createMuiTheme';
 import { red, teal, green } from '@material-ui/core/colors';
-import { TokenModel } from 'modules/root/models/token.model';
+import { TokenModel } from 'modules/auth/models/token.model';
 import { createBrowserHistory, History } from 'history';
 import { AuthState } from 'modules/auth/store/auth.reducer';
 import { LayoutState } from 'modules/Layout/store/layout.reducer';

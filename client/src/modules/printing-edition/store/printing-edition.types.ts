@@ -1,8 +1,8 @@
 export enum PrintingEditionActionTypes {
     PrintingEditionsDefaultRequested = '@@printingEdition/PrintingEditionsDefaultRequested',
     PrintingEditionsDefaultSuccess = '@@printingEdition/PrintingEditionsDefaultSuccess',
-    PrintingEditionsDefaultErrors = '@@printingEdition/PrintingEditionsDefaultErrors',
+    PrintingEditionsDefaultError = '@@printingEdition/PrintingEditionsDefaultErrors',
     PrintingEditionsRequested = '@@printingEdition/PrintingEditionsRequested',
     PrintingEditionsSuccess = '@@printingEdition/PrintingEditionsSuccess',
-    PrintingEditionsErrors = '@@printingEdition/PrintingEditionsErrors',
+    PrintingEditionsError = '@@printingEdition/PrintingEditionsErrors',
 }

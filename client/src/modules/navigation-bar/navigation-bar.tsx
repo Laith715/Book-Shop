@@ -24,7 +24,7 @@ const NavigationBar: React.FC<AllProps> = () => {
                     <MenuIcon />
                 </IconButton>
                 <Typography variant='h6' color='inherit'>
-                BookShop
+                    BookShop
             </Typography>
             </Toolbar>
         </AppBar>
