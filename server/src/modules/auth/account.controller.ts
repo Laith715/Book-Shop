@@ -1,12 +1,12 @@
 import { Controller, Post, Body, UseGuards, Req, Get, BadRequestException, HttpException } from '@nestjs/common';
-import { UserModel } from 'src/models/user.model';
+import { UserModel } from 'src/modules/auth/models/user.model';
 import { AccountService } from 'src/modules/auth/account.service';
 import { AuthGuard } from '@nestjs/passport';
-import { DefaultStrategy } from 'src/constants';
-import { UserLoginModel } from 'src/models/userLogin.model';
+import { Constants } from 'src/constants';
+import { UserLoginModel } from 'src/modules/auth/models/userLogin.model';
 import { request } from 'express';
-import { TokenModel } from 'src/models/token.model';
-import { User } from 'src/database/entities/user.entity';
+import { TokenModel } from 'src/modules/auth/models/token.model';
+import { User } from 'src/modules/database/entities/user.entity';
 
 @Controller('Account')
 export class AccountController {
@@ -28,7 +28,7 @@ export class AccountController {
     }
 
     @Get('CurrentUser')
-    @UseGuards(AuthGuard(DefaultStrategy))
+    @UseGuards(AuthGuard(Constants.DefaultStrategy))
     async currentUser(@Req() req): Promise<UserModel> {
         return req.user;
     }

@@ -1,6 +1,6 @@
 server/.vscode
 client/.vscode
-book-shop.code-workspace
+*.code-workspace
 client/src/environments
 client/tslint.json
 server/tslint.json

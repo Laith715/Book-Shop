@@ -1,6 +1,6 @@
 import { Table, DataType, Column, Model } from 'sequelize-typescript';
 
-@Table({ tableName: 'Authors' })
+@Table({ tableName: 'Authors', createdAt: false, updatedAt: false, deletedAt: false })
 export class Author extends Model<Author> {
     @Column({
         type: DataType.INTEGER,
@@ -16,5 +16,5 @@ export class Author extends Model<Author> {
         allowNull: false,
         defaultValue: false,
     })
-    public name: string;
+    public fullName: string;
 }

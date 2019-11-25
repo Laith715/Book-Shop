@@ -1,4 +1,4 @@
-import { Controller, Post } from '@nestjs/common';
+import { Controller, Post, Body } from '@nestjs/common';
 import { FilterModel } from 'src/modules/printing-editions/models/filter.model';
 import { PrintingEditionService } from 'src/modules/printing-editions/printing-edtion.service';
 
@@ -9,7 +9,8 @@ export class PrintingEditionController {
     ) { }
 
     @Post('getFiltered')
-    public async getFiltered(filterModel: FilterModel) {
-
+    public async getFiltered(@Body() filterModel: FilterModel) {
+        const response: any = await this.printingEditionService.getFiltered(filterModel);
+        return response;
     }
 }

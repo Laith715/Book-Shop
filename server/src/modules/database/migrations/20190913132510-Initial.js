@@ -132,7 +132,7 @@ module.exports = {
             key: 'Id',
           },
         },
-        printingEdtionId: {
+        printingEditionId: {
           type: Sequelize.INTEGER,
           allowNull: false,
           references: {

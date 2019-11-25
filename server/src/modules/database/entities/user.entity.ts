@@ -1,6 +1,6 @@
 import { Table, Model, Column, DataType, TableOptions, CreatedAt } from 'sequelize-typescript';
 
-@Table({ tableName: 'Users', timestamps: true, updatedAt: false, deletedAt: false } as TableOptions)
+@Table({ tableName: 'Users', updatedAt: false, deletedAt: false } as TableOptions)
 export class User extends Model<User> {
     @Column({
         type: DataType.INTEGER,
@@ -16,21 +16,21 @@ export class User extends Model<User> {
         allowNull: false,
         defaultValue: false,
     })
-    public firstName!: string;
+    public firstName: string;
 
     @Column({
         type: DataType.STRING,
         allowNull: false,
         defaultValue: false,
     })
-    public lastName!: string;
+    public lastName: string;
 
     @Column({
         type: DataType.STRING,
         allowNull: false,
         unique: true,
     })
-    public email!: string;
+    public email: string;
 
     @CreatedAt
     @Column({
@@ -42,5 +42,5 @@ export class User extends Model<User> {
         type: DataType.STRING,
         allowNull: false,
     })
-    public passwordHash!: string;
+    public passwordHash: string;
 }

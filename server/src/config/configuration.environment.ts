@@ -1,6 +1,6 @@
 import * as dotenv from 'dotenv';
 import { Injectable } from '@nestjs/common';
-import { DefaultEnvironment } from 'src/constants';
+import { Constants } from 'src/constants';
 import { Dialect } from 'sequelize/types';
 
 @Injectable()
@@ -17,8 +17,8 @@ export class Environment {
         return +process.env.port as number;
     }
 
-    get username(): string {
-        return process.env.username;
+    get user(): string {
+        return process.env.user;
     }
 
     get password(): string {
@@ -38,7 +38,7 @@ export class Environment {
     }
 
     constructor() {
-        const filePath: string = `${process.env.NODE_ENV || DefaultEnvironment}.env`;
-        dotenv.config({ path: filePath });
+        const filePath: string = `src/${process.env.NODE_ENV || Constants.DefaultEnvironment}.env`;
+        const parsed: dotenv.DotenvConfigOutput = dotenv.config({ path: filePath });
     }
 }

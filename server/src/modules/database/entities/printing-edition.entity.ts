@@ -5,10 +5,10 @@ import {
     DataType,
     Table,
 } from 'sequelize-typescript';
-import { PrintingEditionType } from 'src/database/entities/enums/printing-edition-type';
-import { AuthorInBook } from 'src/database/entities/authorInBook.entity';
+import { PrintingEditionType } from 'src/modules/database/entities/enums/printing-edition-type';
+import { AuthorInBook } from 'src/modules/database/entities/authorInBook.entity';
 
-@Table({ tableName: 'PrintingEditions' })
+@Table({ tableName: 'PrintingEditions', updatedAt: false, createdAt: false, deletedAt: false })
 export class PrintingEdition extends Model<PrintingEdition> {
     @Column({
         type: DataType.INTEGER,

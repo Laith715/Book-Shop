@@ -1,14 +1,14 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { sign, verify, VerifyErrors, JsonWebTokenError } from 'jsonwebtoken';
 
-import { UserModel } from 'src/models/user.model';
-import { User } from 'src/database/entities/user.entity';
-import { UserRepository } from 'src/database/repositories/user.repository';
-import { HashSaltRounds } from 'src/constants';
-import { UserLoginModel } from 'src/models/userLogin.model';
-import { RoleModel } from 'src/models/role.model';
+import { UserModel } from 'src/modules/auth/models/user.model';
+import { User } from 'src/modules/database/entities/user.entity';
+import { UserRepository } from 'src/modules/database/repositories/user.repository';
+import { Constants } from 'src/constants';
+import { UserLoginModel } from 'src/modules/auth/models/userLogin.model';
+import { RoleModel } from 'src/modules/auth/models/role.model';
 import { Environment } from 'src/config/configuration.environment';
-import { TokenModel } from 'src/models/token.model';
+import { TokenModel } from 'src/modules/auth/models/token.model';
 
 @Injectable()
 export class AccountService {
@@ -50,7 +50,7 @@ export class AccountService {
     async register(model: UserModel): Promise<User> {
         const bcrypt = require('bcrypt');
         const passwordHashs: string = await new Promise((resolve, reject) => {
-            bcrypt.hash(model.passwordHash, HashSaltRounds, (error: any, hash: string) => {
+            bcrypt.hash(model.passwordHash, Constants.HashSaltRounds, (error: any, hash: string) => {
                 if (error) {
                     reject(error);
                 }
