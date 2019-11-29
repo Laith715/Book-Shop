@@ -1,10 +1,10 @@
 import { Sequelize } from 'sequelize-typescript';
-import { User } from 'src/modules/database/entities/user.entity';
-import { Author } from 'src/modules/database/entities/author.entity';
 import { Constants } from 'src/constants';
 import { Environment } from 'src/config/configuration.environment';
-import { PrintingEdition } from 'src/modules/database/entities/printing-edition.entity';
-import { AuthorInBook } from 'src/modules/database/entities/authorInBook.entity';
+import { Author } from 'src/database/entities/author.entity';
+import { User } from 'src/database/entities/user.entity';
+import { PrintingEdition } from 'src/database/entities/printing-edition.entity';
+import { AuthorInBook } from 'src/database/entities/authorInBook.entity';
 
 export const dataBaseProviders = [
     {

@@ -5,7 +5,7 @@ import { PassportModule } from '@nestjs/passport';
 import { Constants } from 'src/constants';
 import { JwtStrategy } from 'src/modules/auth/jwt.strategy';
 import { CoreModule } from 'src/modules/core/core.module';
-import { DataBaseModule } from 'src/modules/database/database.module';
+import { DataBaseModule } from 'src/database/database.module';
 
 @Module({
     imports: [

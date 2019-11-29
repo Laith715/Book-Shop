@@ -1,6 +1,6 @@
 import { Model, Column, DataType, CreatedAt, HasOne, BelongsTo, ForeignKey, Table } from 'sequelize-typescript';
-import { Author } from 'src/modules/database/entities/author.entity';
-import { PrintingEdition } from 'src/modules/database/entities/printing-edition.entity';
+import { Author } from 'src/database/entities/author.entity';
+import { PrintingEdition } from 'src/database/entities/printing-edition.entity';
 
 @Table({ tableName: 'AuthorInBooks', createdAt: 'creationDateTimeUTC', updatedAt: false, deletedAt: false })
 export class AuthorInBook extends Model<AuthorInBook> {

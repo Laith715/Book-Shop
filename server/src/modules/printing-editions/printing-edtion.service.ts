@@ -1,6 +1,6 @@
-import { PrintingEditionRepository } from 'src/modules/database/repositories/printing-edition.repository';
 import { Injectable } from '@nestjs/common';
 import { FilterModel } from 'src/modules/printing-editions/models/filter.model';
+import { PrintingEditionRepository } from 'src/database/repositories/printing-edition.repository';
 @Injectable()
 export class PrintingEditionService {
     constructor(

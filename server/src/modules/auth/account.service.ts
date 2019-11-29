@@ -2,13 +2,13 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { sign, verify, VerifyErrors, JsonWebTokenError } from 'jsonwebtoken';
 
 import { UserModel } from 'src/modules/auth/models/user.model';
-import { User } from 'src/modules/database/entities/user.entity';
-import { UserRepository } from 'src/modules/database/repositories/user.repository';
 import { Constants } from 'src/constants';
 import { UserLoginModel } from 'src/modules/auth/models/userLogin.model';
 import { RoleModel } from 'src/modules/auth/models/role.model';
 import { Environment } from 'src/config/configuration.environment';
 import { TokenModel } from 'src/modules/auth/models/token.model';
+import { UserRepository } from 'src/database/repositories/user.repository';
+import { User } from 'src/database/entities/user.entity';
 
 @Injectable()
 export class AccountService {

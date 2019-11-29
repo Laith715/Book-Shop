@@ -1,10 +1,10 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { PrintingEdition } from 'src/modules/database/entities/printing-edition.entity';
 import { FilterModel } from 'src/modules/printing-editions/models/filter.model';
-import { AuthorInBook } from 'src/modules/database/entities/authorInBook.entity';
-import { Author } from 'src/modules/database/entities/author.entity';
 import { Constants } from 'src/constants';
 import { Op } from 'sequelize';
+import { PrintingEdition } from 'src/database/entities/printing-edition.entity';
+import { AuthorInBook } from 'src/database/entities/authorInBook.entity';
+import { Author } from 'src/database/entities/author.entity';
 
 @Injectable()
 export class PrintingEditionRepository {

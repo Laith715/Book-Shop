@@ -6,7 +6,7 @@ import { Constants } from 'src/constants';
 import { UserLoginModel } from 'src/modules/auth/models/userLogin.model';
 import { request } from 'express';
 import { TokenModel } from 'src/modules/auth/models/token.model';
-import { User } from 'src/modules/database/entities/user.entity';
+import { User } from 'src/database/entities/user.entity';
 
 @Controller('Account')
 export class AccountController {

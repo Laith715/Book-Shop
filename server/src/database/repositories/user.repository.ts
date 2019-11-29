@@ -1,7 +1,7 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { User } from 'src/modules/database/entities/user.entity';
 import { Constants } from 'src/constants';
 import { UserModel } from 'src/modules/auth/models/user.model';
+import { User } from 'src/database/entities/user.entity';
 
 @Injectable()
 export class UserRepository {
