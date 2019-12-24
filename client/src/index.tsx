@@ -14,7 +14,6 @@ import StoreConfiguration from 'modules/root/store.configuration';
 import Main from 'modules/root/main';
 
 import * as serviceWorker from 'serviceWorker';
-
 const rootElement = document.getElementById('root');
 const history: History = createBrowserHistory();
 
